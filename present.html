@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Present</title>
+    <style>
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out; /* Apply the fade-in animation */
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="randomPresent" src="" alt="Your Random Present">
+
+    <script>
+        window.onload = function() {
+            var totalImages = 4; // Total number of images you have (1.png, 2.png, etc.)
+            var randomNumber = Math.floor(Math.random() * totalImages) + 1; // Generate a random number
+            var imgSrc = randomNumber + '.png'; // Create the image source path
+            document.getElementById('randomPresent').src = imgSrc; // Set the src for the image
+        };
+    </script>
+</body>
+</html>

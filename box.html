@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Gift</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FF868E;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .return-button {
+            display: inline-block;
+            background-color: #FF6363;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            cursor: pointer;
+            font-size: 1.25em;
+            text-decoration: none;
+        }
+
+        #circle {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transform-origin: center;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .box-container {
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .box-container img, #circle {
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <img src="open.png" alt="Open The Present" />
+    
+    <div class="box-container" onclick="scaleCircleAndRedirect()">
+        <img src="box.png" alt="Gift Box" />
+    </div>
+
+    <div id="circle"></div>
+
+    <a href="website.html" class="return-button">Return to Home</a>
+
+    <script>
+        function scaleCircleAndRedirect() {
+            var circle = document.getElementById('circle');
+            var boxImg = document.querySelector('.box-container img');
+
+            circle.style.transform = 'translate(-50%, -50%) scale(20)';
+            boxImg.style.opacity = '0';
+
+            setTimeout(function() {
+                window.location.href = 'present.html';
+            }, 500); // Redirect after the animations
+        }
+    </script>
+</body>
+</html>

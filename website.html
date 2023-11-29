@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Gift Generator</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FF868E;
+            /* Adjust the color to match your design */
+            font-family: Arial, sans-serif;
+            /* Choose a festive font */
+            position: relative;
+            z-index: 0;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            /* Keep it centered horizontally */
+            transform: translateX(-50%);
+            width: 400px;
+            /* Increase the width to make the logo larger */
+            z-index: 10;
+            /* Ensure it's above the background */
+        }
+
+        #container {
+            position: relative;
+            z-index: 2;
+            top: 400px;
+            /* Adjust this value as needed to ensure it's below the logo */
+            width: 100%;
+            text-align: center;
+        }
+
+        .input-field {
+            display: block;
+            width: 60%;
+            /* Adjust the width to make the input boxes larger */
+            max-width: 600px;
+            /* Set a maximum width for larger screens */
+            margin: 20px auto;
+            padding: 15px;
+            border: 2px solid #FFFFFF;
+            border-radius: 20px;
+            text-align: center;
+            background: transparent;
+            color: #FFFFFF;
+            font-size: 1.25em;
+            /* Larger font size for better visibility */
+            outline: none;
+        }
+
+        #generate {
+            display: block;
+            width: 60%;
+            /* Adjust the width to match the input boxes */
+            max-width: 600px;
+            /* Set a maximum width for larger screens */
+            background-color: #FF6363;
+            /* Button color */
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px auto;
+            cursor: pointer;
+            font-size: 1.25em;
+            /* Larger font size for better visibility */
+            outline: none;
+        }
+
+        #snow {
+            position: fixed;
+            /* Fixed position to ensure it's always at the bottom */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            /* Make sure this is less than the z-index of #container */
+        }
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" id="logo" alt="Home" />
+    <div id="container">
+        <input type="text" id="name" class="input-field" placeholder="Enter Name">
+        <input type="text" id="interest" class="input-field" placeholder="Enter Interest">
+        <button id="generate">GENERATE</button>
+    </div>
+    <img src="snow.png" id="snow" alt="Snow" />
+    <script>
+        // JavaScript to handle button click and interact with the Python back-end
+        document.getElementById('generate').onclick = function () {
+            var name = document.getElementById('name').value.trim();
+            var interest = document.getElementById('interest').value.trim();
+            console.log("Name:", name, "Interest:", interest);
+
+            // Redirect to the box page
+            window.location.href = 'box.html';
+        };
+
+    </script>
+</body>
+
+</html>
